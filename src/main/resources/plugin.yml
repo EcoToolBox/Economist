@@ -1,0 +1,7 @@
+name: Economist
+version: '${project.version}'
+main: econtoolbox.economist.Economist
+api-version: 1.19
+depend: [ AccountInterface ]
+authors: [ ColonelKai, MoseMister ]
+description: Economist is a minecraft plugin that provides essential data about your server's economy to help you create a modern, functioning economy!  
