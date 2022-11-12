@@ -9,4 +9,6 @@ public interface Manager {
     void load();
 
     void unload();
+
+    File getFileLocation();
 }

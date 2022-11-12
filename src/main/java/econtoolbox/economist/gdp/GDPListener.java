@@ -5,6 +5,8 @@ import org.bukkit.event.Listener;
 import org.kaiaccount.account.inter.event.TransactionCompletedEvent;
 import org.kaiaccount.account.inter.transfer.result.successful.SuccessfulTransactionResult;
 
+import java.math.BigDecimal;
+
 public class GDPListener implements Listener {
 
     @EventHandler
@@ -12,11 +14,11 @@ public class GDPListener implements Listener {
         if(!(event instanceof SuccessfulTransactionResult)){
             return;
         }
-        long transactionAmount = event.getTransaction().getTransactions()
+        BigDecimal transactionAmount = event.getTransaction().getTransactions()
                 .parallelStream()
-                .mapToLong(value -> value.getPayment().getAmount().intValue())
-                .sum();
+                .map(value -> value.getPayment().getAmount())
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
 
-        // TODO use this value lol
+
     }
 }
