@@ -9,9 +9,7 @@ public abstract class AbstractManager implements Manager {
     File file;
 
     public void load() {
-        this.file = new File(Economist.getDataFolderFromGod()
-                + File.separator + Files.DATA_FOLDER_NAME,
-                this.getManagerName() + ".yml");
+        this.file = new File(Files.DATA_FOLDER, this.getManagerName() + ".yml");
     }
 
     @Override
